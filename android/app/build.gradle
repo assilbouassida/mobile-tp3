@@ -1,0 +1,32 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.tp1"
+    compileSdk = 33 // Par exemple, la version compileSdk appropriée
+
+    defaultConfig {
+        applicationId = "com.example.tp1"
+        minSdk = 21 // Par exemple, votre minSdk
+        targetSdk = 33 // Par exemple, votre targetSdk
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+}
+
+apply plugin: 'com.google.gms.google-services'
